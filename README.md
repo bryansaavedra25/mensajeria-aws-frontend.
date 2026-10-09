@@ -17,33 +17,6 @@ Este repositorio contiene la API REST y el motor de procesamiento asíncrono par
 
 ---
 
-## 🏗️ Arquitectura y Flujo de Datos
-
-[ Frontend React ]
-│
-├─── (HTTP POST /ordenes/sync) ───► [ Procesamiento Síncrono Directo ]
-│
-└─── (HTTP POST /ordenes) ────────► [ AWS SQS: ordenes-q ]
-│
-[ Listener Spring Boot ]
-│
-┌─────────────┴─────────────┐
-▼                           ▼
-[ Éxito: Monto > 0 ]      [ Error Definitivo: Monto < 0 ]
-│                           │
-(Procesado OK)              (Descartado / Directo a DLQ)
-│
-[ AWS SQS: ordenes-dlq ]
-│
-[ AWS CloudWatch Alarm ]
-(ApproximateNumberOfMessagesVisible >= 1)
-│
-[ AWS SNS Topic ]
-│
-(Email Notification)
-
----
-
 ## ⚡ Reglas de Negocio y Manejo de Errores
 
 1. **Flujo Exitoso:**
