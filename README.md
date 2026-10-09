@@ -50,28 +50,24 @@ Este repositorio contiene la API REST y el motor de procesamiento asíncrono par
 - Credenciales de AWS configuradas en el entorno local (`~/.aws/credentials` o variables de entorno) con acceso a SQS, SNS y CloudWatch.
 
 ### Variables de Configuración (`application.properties`)
-properties
-server.port=8080
+-properties
+-server.port=8080
 
 # Configuración AWS Region
-spring.cloud.aws.region.static=us-east-1
+-spring.cloud.aws.region.static=us-east-1
 
 # Nombres de Colas y Temas
-aws.sqs.queue.main=ordenes-q
-aws.sqs.queue.dlq=ordenes-dlq
-aws.sns.topic.alertas=arn:aws:sns:us-east-1:ACCOUNT_ID:alertas-dlq-topic
+-aws.sqs.queue.main=ordenes-q
+-aws.sqs.queue.dlq=ordenes-dlq
+-aws.sns.topic.alertas=arn:aws:sns:us-east-1:ACCOUNT_ID:alertas-dlq-topic
 
 ## 🚀 Ejecución en Local
 Clonar el repositorio:
-
-Bash
-git clone [https://github.com/TU_USUARIO/mensajeria-aws-backend.git](https://github.com/TU_USUARIO/mensajeria-aws-backend.git)
-cd mensajeria-aws-backend
-Compilar y ejecutar la aplicación:
-
-Bash
-./mvnw spring-boot:run
-El servidor se iniciará en http://localhost:8080.
+-git clone https://github.com/bryansaavedra25/mensajeria-aws-backend.git
+-cd mensajeria-aws-backend
+-Compilar y ejecutar la aplicación:
+-./mvnw spring-boot:run
+-El servidor se iniciará en http://localhost:8080.
 
 👤 Autor
 Nombre: Bryan Saavedra
